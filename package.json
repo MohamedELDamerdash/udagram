@@ -11,3 +11,4 @@
         "back_Deploy": "cd ./udagram-api &&  eb init udagram-api --platform node.js --region us-east-1 && npm run deploy && cd .."},
     "devDependencies": {}
 }
+
