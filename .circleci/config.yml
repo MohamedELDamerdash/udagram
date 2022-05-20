@@ -14,9 +14,6 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - run:
-          name: 
-          command: aws s3 ls --region us-east-1
-      - run:
           name: install the frontend dependencies
           command: npm run front
       - run:
@@ -31,6 +28,9 @@ jobs:
       - run:
           name: backend deploy
           command: npm run back_Deploy
+      - run:
+          name: frontend deploy
+          command: npm run front_Deploy
 workflows:
   Udagram:
     jobs:
