@@ -1,0 +1,43 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.0
+  aws-cli: circleci/aws-cli@2.0.6
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+
+jobs:
+  build: 
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - checkout
+      - node/install
+      - aws-cli/setup
+      - eb/setup
+      - run:
+          name: install the frontend dependencies
+          command: npm run frontI
+      - run:
+          name: install the backend dependencies
+          command: npm run backI
+      - run:
+          name: build the frontend project
+          command: npm run frontBuild
+      - run:
+          name: build the backend project
+          command: npm run backBuild
+      - run:
+          name: frontend deploy
+          command: npm run frontDeploy
+      - run:
+          name: backend deploy
+          command: npm run backDeploy
+workflows:
+  Udagram:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
