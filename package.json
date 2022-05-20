@@ -7,7 +7,7 @@
         "back_Build": "cd ./udagram-api && npm run build && cd ..",
         "front_T": "cd ./udagram-frontend && npm run test && cd ..",
         "back_T": "cd ./udagram-api && npm run test && cd .. ",
-        "front_Deploy": "cd ./udagram-frontend && aws s3 cp --recursive --acl public-read ./www s3://moh-udagram/ && cd ..",
+        "front_Deploy": "cd ./udagram-frontend && npm run build && cd ..",
         "back_Deploy": "cd ./udagram-api &&  eb init udagram-api --platform node.js --region us-east-1 && npm run deploy && cd .."},
     "devDependencies": {}
 }
