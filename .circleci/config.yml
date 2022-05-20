@@ -9,8 +9,6 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
       - checkout
       - node/install
       - aws-cli/setup
