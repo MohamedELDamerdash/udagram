@@ -14,6 +14,9 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - run:
+          name: 
+          command: aws s3 ls --region us-east-1
+      - run:
           name: install the frontend dependencies
           command: npm run front
       - run:
